@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-""" The basics of async module
-"""
-
-
-import asyncio
+""" a python module to loop 10 times """
 import random
+import asyncio
+from typing import Generator
 
 
-async def wait_random(max_delay: int = 10) -> float:
-    """ Wait random seconds
+async def async_generator() -> Generator[float, None, None]:
     """
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
+    async_generator - function to loop 10 times
+    Arguments:
+        no arguments
+    Returns:
+        nothing
+    """
+    for i in range(10):
+        await asyncio.sleep(1)
+        yield random.uniform(0, 10)

@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-""" Let's execute multiple coroutines at the same time with async
-"""
-
-wait_random = __import__('0-basic_async_syntax').wait_random
+""" a python module to returns 10 random numbers using async comprehension"""
 from typing import List
-import random
-import asyncio
+async_generator = __import__('0-async_generator').async_generator
 
 
-async def wait_n(n: int, max_delay: int) -> List[float]:
-    """ returns multiple coroutines
+async def async_comprehension() -> List[float]:
     """
-    tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
-
-    return [await task for task in asyncio.as_completed(tasks)]
+    async_comprehension- function to return 10 random numbers
+    Arguments:
+        no arguments
+    Returns:
+        10 random numbers
+    """
+    rslt = [i async for i in async_generator()]
+    return rslt
